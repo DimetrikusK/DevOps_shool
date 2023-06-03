@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM systemd-ubuntu:18.04
 RUN apt update -y
 RUN apt install default-jdk -y && \
     apt install tomcat9 -y && \
