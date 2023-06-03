@@ -1,7 +1,6 @@
-FROM ubuntu:18.04
+FROM jrei/systemd-ubuntu:latest
 RUN apt update -y
-RUN apt install systemd -y && \
-    apt install default-jdk -y && \
+RUN apt install default-jdk -y && \
     apt install tomcat9 -y && \
     apt install maven -y && \
     apt install git -y
