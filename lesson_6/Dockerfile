@@ -8,4 +8,4 @@ RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 RUN cd /boxfuse-sample-java-war-hello/ && \
     mvn package
 RUN cp target/hello-1.0.war /var/lib/tomcat9/webapps/
-PORT 8080
+EXPOSE 8080
