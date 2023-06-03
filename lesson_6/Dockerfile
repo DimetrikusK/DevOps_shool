@@ -1,4 +1,5 @@
-FROM ubuntu:20.04
+#FROM ubuntu:20.04
+FROM tomcat:8.0-jre8-alpine
 RUN apt update -y
 RUN apt install default-jdk -y && \
     apt install tomcat9 -y && \
