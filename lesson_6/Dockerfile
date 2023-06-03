@@ -1,4 +1,4 @@
-FROM systemd-ubuntu:18.04
+FROM ubuntu:18.04
 RUN apt update -y
 RUN apt install systemd -y && \
     apt install default-jdk -y && \
