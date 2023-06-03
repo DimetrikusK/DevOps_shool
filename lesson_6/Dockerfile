@@ -5,7 +5,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-18-openjdk-amd64
 ENV PATH $CATALINA_HOME/bin:$PATH
 
 RUN apt-get -y update && apt-get -y upgrade
-RUN yum install -y default-jdk wget maven git
+RUN apt-get install -y default-jdk wget maven git
     #yum install tomcat9 -y && \
     #yum install maven -y && \
     #yum install git -y
