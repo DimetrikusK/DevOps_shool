@@ -1,10 +1,9 @@
-FROM jrei/systemd-ubuntu:latest
+FROM tomcat:9.0
 RUN apt update -y
 RUN apt install default-jdk -y && \
     apt install tomcat9 -y && \
     apt install maven -y && \
     apt install git -y
-CMD service tomcat9 start
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 WORKDIR /boxfuse-sample-java-war-hello
 RUN mvn package
