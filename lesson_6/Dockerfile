@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get install -y default-jdk wget maven git
+RUN apt-get install -y default-jdk maven git
     #yum install tomcat9 -y && \
     #yum install maven -y && \
     #yum install git -y
