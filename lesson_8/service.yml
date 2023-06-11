@@ -1,6 +1,6 @@
 ---
 - name: clone and build project
-  host: maven
+  hosts: maven
   become: true
 
   tasks:
