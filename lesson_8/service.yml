@@ -1,12 +1,69 @@
-master  ansible_host=84.201.151.252 ansible_user=root
-slave1  ansible_host=51.250.47.221  ansible_user=root
-slave2  ansible_host=51.250.39.226  ansible_user=root
+---
+- name: clone and build project
+  host: maven
+  become: true
 
-[tomcat]
-slave1
+  tasks:
+    - name: Clone project
+      git:
+        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        dest: /app/
+        clone: yes
+        update: yes
 
-[maven]
-slave2
+    - name: Install maven
+      apt:
+       update: yes
+       name: maven
+       state: present
 
-[master]
-master
+    - name: build project
+      shell: "mvn package /app"
+
+- name: install tomcat
+  hosts: tomcat
+  become: true
+
+  tasks:
+
+    - name: Create a Tomcat User
+      user:
+       name: tomcat
+
+    - name: Create a Tomcat Group
+      group:
+       name: tomcat
+
+    - name: Install JAVA
+      apt:
+       name: default-jdk
+       state: pesent
+
+    - name: Create a Tomcat Directory
+      file:
+       path: /opt/tomcat10
+       owner: tomcat
+       group: tomcat
+       mode: 755
+       recurse: yes
+
+    - name: download & unarchive tomcat10
+      unarchive:
+       src: https://mirrors.estointernet.in/apache/tomcat/tomcat-10/v10.0.4/bin/apache-tomcat- 10.0.4.tar.gz
+       dest: /opt/tomcat10
+       remote_src: yes
+
+    - name: Change ownership of tomcat directory
+      file:
+       path: /opt/tomcat10
+       owner: tomcat
+       group: tomcat
+       mode: "u+rwx,g+rx,o=rx"
+       recurse: yes
+       state: directory
+
+    - name: Start and Enable Tomcat 10 on sever
+      systemd:
+       name: tomcat
+       state: started
+       daemon_reload: true
