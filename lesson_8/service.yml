@@ -5,11 +5,11 @@
 
   tasks:
     - name: Clone project
-      git:
-        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-        dest: /app/
-        clone: yes
-        update: yes
+      ansible.builtin.git:
+       repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+       dest: /app/
+       clone: yes
+       update: yes
 
     - name: Install maven
       apt:
