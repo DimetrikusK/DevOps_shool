@@ -1,0 +1,43 @@
+---
+version: '3'
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+     - '8080:80'
+    restart: on-failure:3
+#    depends_on: ''
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - '8081:8080'
+      - '5000:5000'
+    volumes:
+      - '/app/jenkins:/app/jenkins'
+    restart: on-failure:3
+
+  nexus:
+    image: sonatype/nexus3
+    container_name: nexus
+    ports:
+      - '8082:8082'
+    volumes:
+      - '/app/nexus:/app/nexus'
+    restart: on-failure:3
+
+  gitlab:
+    image: gitlab/gitlab-ee:latest
+    container_name: gitlab
+    ports:
+      - '80:80'
+      - '443:443'
+      - '22:22'
+    volumes:
+      - '$GITLAB_HOME/config:/etc/gitlab'
+      - '$GITLAB_HOME/config:/etc/gitlab'
+      - '$GITLAB_HOME/data:/var/opt/gitlab'
+    restart: always
+
