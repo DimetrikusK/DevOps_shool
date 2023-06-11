@@ -68,7 +68,7 @@
         state: directory
 
     - name: Start and Enable Tomcat 9 on sever
-      systemd:
-        name: tomcat9
-        state: started
+      shell:
+        cmd: ./catalina.sh run
+        chdir: /opt/tomcat10/apache-tomcat-9.0.76/bin
         daemon_reload: true
