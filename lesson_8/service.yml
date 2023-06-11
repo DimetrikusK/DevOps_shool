@@ -12,7 +12,7 @@
     - name: Clone project
       git:
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-        dest: /app/
+        dest: /app
         clone: yes
 
     - name: Install maven
@@ -21,7 +21,9 @@
         state: present
 
     - name: Build project
-      shell: "mvn package /app"
+      shell:
+        cmd: mvn package
+        chdir: /app
 
 - name: install tomcat
   hosts: tomcat
