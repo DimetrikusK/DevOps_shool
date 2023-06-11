@@ -4,9 +4,8 @@
   become: true
 
   tasks:
-    - name: Install git
+    - name: Install Git
       apt:
-        update: yes
         name: git-all
         state: present
 
@@ -15,11 +14,9 @@
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
         dest: /app/
         clone: yes
-        update: yes
 
     - name: Install maven
       apt:
-        update: yes
         name: maven
         state: present
 
