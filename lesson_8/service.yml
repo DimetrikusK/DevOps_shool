@@ -17,7 +17,7 @@
        name: maven
        state: present
 
-    - name: build project
+    - name: Build project
       shell: "mvn package /app"
 
 - name: install tomcat
