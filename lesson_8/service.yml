@@ -42,7 +42,7 @@
     - name: Install JAVA
       apt:
         name: default-jdk
-        state: pesent
+        state: present
 
     - name: Create a Tomcat Directory
       file:
