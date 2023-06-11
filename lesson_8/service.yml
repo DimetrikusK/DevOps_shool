@@ -67,8 +67,8 @@
         recurse: yes
         state: directory
 
-    - name: Start and Enable Tomcat 10 on sever
+    - name: Start and Enable Tomcat 9 on sever
       systemd:
-        name: tomcat
+        name: tomcat9
         state: started
         daemon_reload: true
