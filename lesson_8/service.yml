@@ -8,6 +8,7 @@
       apt:
         update: yes
         name: git-all
+        state: present
 
     - name: Clone project
       git:
