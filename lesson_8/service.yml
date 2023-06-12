@@ -78,13 +78,12 @@
       hosts: maven
       fetch:
         src: /app/target/hello-1.0.war
-        dest: /home/kda/app
-
+        dest: /home/kda/DevOps_shool/lesson_8/app/
 
     - name: Copy project to tomcat
       hosts: tomcat
       copy:
-        src: /home/kda/app/hello-1.0.war
+        src: /home/kda/DevOps_shool/lesson_8/app
         dest: /opt/tomcat10/apache-tomcat-9.0.76/webapps
         owner: tomcat
 
