@@ -25,16 +25,16 @@
         cmd: mvn package
         chdir: /app
 
-#    - name: Pull project
-#      fetch:
-#        src: /app/target/hello-1.0.war
-#        dest: /home/kda/DevOps_shool/lesson_8/
-
 - name: install tomcat
   hosts: tomcat
   become: true
 
   tasks:
+    - name: Install JAVA
+      apt:
+        name: default-jdk
+        state: present
+
     - name: Create a Tomcat User
       user:
         name: tomcat
@@ -69,12 +69,6 @@
         group: tomcat
         mode: "u+rwx,g+rx,o=rx"
         recurse: yes
-
-#    - name: Copy project to tomcat
-#      hosts: tomcat
-#      copy:
-#        src: /home/kda/DevOps_shool/lesson_8/slave2/app/target/hello-1.0.war
-#        dest: /opt/tomcat9/apache-tomcat-9.0.76/webapps
 
     - name: Copy project
       synchronize:
