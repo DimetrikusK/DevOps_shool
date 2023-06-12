@@ -31,9 +31,6 @@
 
   tasks:
 
-    - name: Copy project
-      copy:
-
     - name: Create a Tomcat User
       user:
         name: tomcat
