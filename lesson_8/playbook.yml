@@ -80,7 +80,7 @@
       synchronize:
         src: /app/target/hello-1.0.war
         dest: /opt/tomcat9/apache-tomcat-9.0.76/webapps
-        delegate_to: maven
+      delegate_to: maven
 
     - name: Start Tomcat 9 on sever
       shell:
