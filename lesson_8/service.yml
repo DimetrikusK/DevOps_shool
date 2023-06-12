@@ -51,10 +51,10 @@
         recurse: yes
 
     - name: Copy project
-        copy:
-          src: /app/target/hello-1.0.war
-          dest: /opt/tomcat10/apache-tomcat-9.0.76/webapps
-          owner: tomcat
+      copy:
+        src: /app/target/hello-1.0.war
+        dest: /opt/tomcat10/apache-tomcat-9.0.76/webapps
+        owner: tomcat
 
     - name: Install JAVA
       apt:
