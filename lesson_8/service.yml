@@ -69,6 +69,7 @@
 
 
 - name: Copy and run project
+  hosts: all
   become: true
 
   tasks:
