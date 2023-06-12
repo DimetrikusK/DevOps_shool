@@ -1,5 +1,5 @@
 ---
-- name: clone and build project
+- name: Сlone and build project
   hosts: maven
   become: true
 
@@ -47,12 +47,6 @@
         mode: 755
         recurse: yes
 
-    - name: Copy project
-      copy:
-        src: /app/target/hello-1.0.war
-        dest: /opt/tomcat10/apache-tomcat-9.0.76/webapps
-        owner: tomcat
-
     - name: Install JAVA
       apt:
         name: default-jdk
@@ -72,6 +66,27 @@
         mode: "u+rwx,g+rx,o=rx"
         recurse: yes
         state: directory
+
+
+- name: Copy and run project
+  hosts: maven tomcat
+  become: true
+
+  tasks:
+
+    - name: Pull project to master
+      hosts: maven
+      fetch:
+        src: /app/target/hello-1.0.war
+        dest: /home/kda/app
+
+
+    - name: Copy project to tomcat
+      hosts: tomcat
+      copy:
+        src: /home/kda/app/hello-1.0.war
+        dest: /opt/tomcat10/apache-tomcat-9.0.76/webapps
+        owner: tomcat
 
     - name: Start and Enable Tomcat 9 on sever
       shell:
