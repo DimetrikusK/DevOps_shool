@@ -25,10 +25,10 @@
         cmd: mvn package
         chdir: /app
 
-    - name: Pull project
-      fetch:
-        src: /app/target/hello-1.0.war
-        dest: /home/kda/DevOps_shool/lesson_8/
+#    - name: Pull project
+#      fetch:
+#        src: /app/target/hello-1.0.war
+#        dest: /home/kda/DevOps_shool/lesson_8/
 
 - name: install tomcat
   hosts: tomcat
@@ -45,7 +45,7 @@
 
     - name: Create a Tomcat Directory
       file:
-        path: /opt/tomcat10
+        path: /opt/tomcat9
         owner: tomcat
         group: tomcat
         mode: 755
@@ -56,28 +56,34 @@
         name: default-jdk
         state: present
 
-    - name: download & unarchive tomcat10
+    - name: download & unarchive tomcat9
       unarchive:
         src: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.76/bin/apache-tomcat-9.0.76.tar.gz
-        dest: /opt/tomcat10
+        dest: /opt/tomcat9
         remote_src: yes
 
     - name: Change ownership of tomcat directory
       file:
-        path: /opt/tomcat10
+        path: /opt/tomcat9
         owner: tomcat
         group: tomcat
         mode: "u+rwx,g+rx,o=rx"
         recurse: yes
 
-    - name: Copy project to tomcat
-      hosts: tomcat
-      copy:
-        src: /home/kda/DevOps_shool/lesson_8/slave2/app/target/hello-1.0.war
-        dest: /opt/tomcat10/apache-tomcat-9.0.76/webapps
+#    - name: Copy project to tomcat
+#      hosts: tomcat
+#      copy:
+#        src: /home/kda/DevOps_shool/lesson_8/slave2/app/target/hello-1.0.war
+#        dest: /opt/tomcat9/apache-tomcat-9.0.76/webapps
+
+    - name: Copy project
+      synchronize:
+        src: rsync://51.250.45.43/app/target/hello-1.0.war
+        dest: /opt/tomcat9/apache-tomcat-9.0.76/webapps
 
     - name: Start Tomcat 9 on sever
-      hosts: tomcat
       shell:
         cmd: ./catalina.sh run &
-        chdir: /opt/tomcat10/apache-tomcat-9.0.76/bin
+        chdir: /opt/tomcat9/apache-tomcat-9.0.76/bin
+
+
