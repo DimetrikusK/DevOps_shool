@@ -31,6 +31,9 @@
 
   tasks:
 
+    - name: Copy project
+      copy:
+
     - name: Create a Tomcat User
       user:
         name: tomcat
@@ -39,11 +42,6 @@
       group:
         name: tomcat
 
-    - name: Install JAVA
-      apt:
-        name: default-jdk
-        state: present
-
     - name: Create a Tomcat Directory
       file:
         path: /opt/tomcat10
@@ -51,6 +49,17 @@
         group: tomcat
         mode: 755
         recurse: yes
+
+    - name: Copy project
+        copy:
+          src: /app/target/hello-1.0.war
+          dest: /opt/tomcat10/apache-tomcat-9.0.76/webapps
+          owner: tomcat
+
+    - name: Install JAVA
+      apt:
+        name: default-jdk
+        state: present
 
     - name: download & unarchive tomcat10
       unarchive:
