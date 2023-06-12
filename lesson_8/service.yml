@@ -27,9 +27,9 @@
 
     - name: Pull project
       fetch:
-        src: /app/target/hello-1.0.war
+        src: hello-1.0.war
         dest: /home/kda/DevOps_shool/lesson_8/app/
-
+#/app/target/
 - name: install tomcat
   hosts: tomcat
   become: true
