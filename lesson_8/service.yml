@@ -73,7 +73,7 @@
     - name: Copy project to tomcat
       hosts: tomcat
       copy:
-        src: /home/kda/DevOps_shool/lesson_8/app/hello-1.0.war
+        src: /home/kda/DevOps_shool/lesson_8/slave2/app/target/hello-1.0.war
         dest: /opt/tomcat10/apache-tomcat-9.0.76/webapps
 
     - name: Start Tomcat 9 on sever
