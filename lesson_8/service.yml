@@ -69,7 +69,6 @@
 
 
 - name: Copy and run project
-  hosts: maven tomcat
   become: true
 
   tasks:
@@ -83,11 +82,10 @@
     - name: Copy project to tomcat
       hosts: tomcat
       copy:
-        src: /home/kda/DevOps_shool/lesson_8/app
+        src: /home/kda/DevOps_shool/lesson_8/app/hello-1.0.war
         dest: /opt/tomcat10/apache-tomcat-9.0.76/webapps
-        owner: tomcat
 
-    - name: Start and Enable Tomcat 9 on sever
+    - name: Start Tomcat 9 on sever
       shell:
         cmd: ./catalina.sh run
         chdir: /opt/tomcat10/apache-tomcat-9.0.76/bin
