@@ -77,7 +77,7 @@
     - name: Pull project to master
       hosts: maven
       fetch:
-        src: /app/target/hello-1.0.war
+        src: /app/target/*
         dest: /home/kda/DevOps_shool/lesson_8/app/
 
     - name: Copy project to tomcat
