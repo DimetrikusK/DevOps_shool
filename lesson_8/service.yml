@@ -79,5 +79,5 @@
     - name: Start Tomcat 9 on sever
       hosts: tomcat
       shell:
-        cmd: ./catalina.sh run
+        cmd: ./catalina.sh run &
         chdir: /opt/tomcat10/apache-tomcat-9.0.76/bin
