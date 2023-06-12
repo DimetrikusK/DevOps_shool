@@ -25,6 +25,11 @@
         cmd: mvn package
         chdir: /app
 
+    - name: Pull project
+      fetch:
+        src: /app/target/hello-1.0.war
+        dest: /home/kda/DevOps_shool/lesson_8/app/
+
 - name: install tomcat
   hosts: tomcat
   become: true
@@ -64,14 +69,7 @@
         group: tomcat
         mode: "u+rwx,g+rx,o=rx"
         recurse: yes
-        state: directory
 
-
-- name: Copy and run project
-  hosts: all
-  become: true
-
-  tasks:
     - name: Pull project to master
       hosts: maven
       fetch:
