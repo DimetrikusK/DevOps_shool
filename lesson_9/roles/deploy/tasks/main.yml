@@ -35,7 +35,7 @@
   synchronize:
     src: /app/target/hello-1.0.war
     dest: /opt/tomcat9/apache-tomcat-9.0.76/webapps
-  delegate_to: build
+  delegate_to: slave1
 
 - name: Start Tomcat 9 on sever
   shell:
