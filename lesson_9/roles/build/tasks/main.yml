@@ -1,7 +1,19 @@
 ---
 # tasks file for build
+- name: copy banner
+  copy: src=banner dest=/etc/ssh
+
+- name: edit config sshd
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    line: 'Banner /etc/ssh/banner'
+  notify:
+    - restart sshd
+
 - name: install packeges
   apt: name={{ item }} state=present
   with_items:
     - git-all
     - maven
+
+

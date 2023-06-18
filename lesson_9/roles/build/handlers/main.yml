@@ -1,2 +1,5 @@
 ---
 # handlers file for build
+- name: restart sshd
+  service: sshd state=restarted
+
