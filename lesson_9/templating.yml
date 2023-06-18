@@ -10,7 +10,7 @@
   tasks:
     - name: nginx is present
       apt:
-        neme: nginx
+        name: nginx
         state: present
 
     - name: template index.html
