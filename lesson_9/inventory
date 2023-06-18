@@ -1,8 +1,8 @@
 slave1  ansible_host=84.201.168.220  ansible_user=root
 slave2  ansible_host=84.201.168.73   ansible_user=root
 
-[web]
+[build]
 slave1 state=First
 
-[db]
+[deploy]
 slave2 state=Second

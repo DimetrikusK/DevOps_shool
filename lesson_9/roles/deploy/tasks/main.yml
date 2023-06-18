@@ -1,2 +1,43 @@
 ---
 # tasks file for deploy
+- name: Install JAVA
+  apt: name= {{ item }} state=present
+  with_items:
+    - default-jdk
+
+- name: Create a Tomcat files and user
+  user:
+    name: tomcat
+  group:
+    name: tomcat
+  file:
+    path: /opt/tomcat9
+    owner: tomcat
+    group: tomcat
+    mode: 755
+    recurse: yes
+
+- name: Change ownership of tomcat directory
+  file:
+    path: /opt/tomcat9
+    owner: tomcat
+    group: tomcat
+    mode: "u+rwx,g+rx,o=rx"
+    recurse: yes
+
+- name: download & unarchive tomcat9
+  unarchive:
+    src: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.76/bin/apache-tomcat-9.0.76.tar.gz
+    dest: /opt/tomcat9
+    remote_src: yes
+
+- name: Copy project
+  synchronize:
+    src: /app/target/hello-1.0.war
+    dest: /opt/tomcat9/apache-tomcat-9.0.76/webapps
+  delegate_to: build
+
+- name: Start Tomcat 9 on sever
+  shell:
+    cmd: ./catalina.sh run &
+    chdir: /opt/tomcat9/apache-tomcat-9.0.76/bin

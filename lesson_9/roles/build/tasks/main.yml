@@ -16,4 +16,13 @@
     - git-all
     - maven
 
+- name: Clone project
+  git:
+    repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+    dest: /app
+    clone: yes
 
+- name: Build project
+  shell:
+    cmd: mvn package
+    chdir: /app
