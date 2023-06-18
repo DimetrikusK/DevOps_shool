@@ -1,2 +1,7 @@
 ---
 # tasks file for common
+- name: install packeges
+  apt: name={{ item }} state=install
+  with_items:
+    - git-all
+    - maven
