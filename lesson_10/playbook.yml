@@ -16,7 +16,7 @@
   become: true
 
   tasks:
-    - name: create container nexus
+    - name: start container nexus
       docker_container:
         name: nexus
         image: sonatype/nexus3
@@ -28,6 +28,63 @@
         restart: true
 
 
+- name: up jenkins
+  hosts: jenkins
+  become: true
 
+  tasks:
+    - name: start container jenkins
+      docker_container:
+        name: jenkins
+        image: jenkins/jenkins:lts-jdk11
+        user: root
+        volumes:
+          - /app/jenkins:/var/jenkins_home
+        ports:
+          - 8082:8080
+          - 50000:50000
+        restart: true
+
+
+- name: install agent one
+  hosts: agent_one
+  become: true
+
+  tasks:
+    - name: start agent one
+      docker_container:
+        name: agent_one
+        image: jenkins/ssh-agent:jdk11
+        user: root
+        restart: true
+        volumes:
+          - /app/jenkins/agent/java:/usr/local/openjdk-11/bin/java
+          - /app/jenkins/agent/:/home/jenkins/agent
+          - /app/jenkins/agent/git:/home/jenkins/agent/workspace/
+        #    command: "apt-get update -y && apt-get upgrade -y && apt-get install git -y"
+        expose:
+          - 22
+        env:
+          - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhc6LyAqc1H41BzheW+zmcmhxLi6Irv5f0kUZboWHg2JZHOXhjbTl1FSnrUJKNu/me+BantDTx4Mis0PmdKp2LXam7ZmpqdDiDFL36o2anmBkO6AGc6ZQ5veVwCu70/rQbVWygev1Hzk5Z4nIqbjFn1VdAv4KZoHnYb5UVheLkq+fIT+YdT9wJ7QQGp6DTe09RfzLyXmhLWacYWTvYqEexM3eooqFTvn0CizP8NdaIcEzyyvPO8fjODkI1vMezY4/mWovnYG4U+7524Auvr38cdz+0++fOJPXATwqo89lbmO2eU3TYSLGySdGjWiCdYH9PSW/DdicmDpOzCd+393D root@masterjenkins
+
+
+- name: install agent one
+  hosts: agent_one
+  become: true
+
+  tasks:
+    - name: start agent two
+      docker_container:
+        name : agent_two
+        user: root
+        container_name: agent_two
+        restart: always
+        volumes:
+          - /app/jenkins/agent/java:/usr/local/openjdk-11/bin/java
+          - /app/jenkins/agent/:/home/jenkins/agent
+        expose:
+          - 22
+        env:
+          - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwhc6LyAqc1H41BzheW+zmcmhxLi6Irv5f0kUZboWHg2JZHOXhjbTl1FSnrUJKNu/me+BantDTx4Mis0PmdKp2LXam7ZmpqdDiDFL36o2anmBkO6AGc6ZQ5veVwCu70/rQbVWygev1Hzk5Z4nIqbjFn1VdAv4KZoHnYb5UVheLkq+fIT+YdT9wJ7QQGp6DTe09RfzLyXmhLWacYWTvYqEexM3eooqFTvn0CizP8NdaIcEzyyvPO8fjODkI1vMezY4/mWovnYG4U+7524Auvr38cdz+0++fOJPXATwqo89lbmO2eU3TYSLGySdGjWiCdYH9PSW/DdicmDpOzCd+393D root@masterjenkins
 
 

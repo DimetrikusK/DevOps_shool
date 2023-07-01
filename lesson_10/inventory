@@ -9,6 +9,8 @@ jenkins
 [nexus]
 nexus
 
-[agents]
+[agent_one]
 slave1
+
+[agent_two]
 slave2
