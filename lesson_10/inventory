@@ -1,5 +1,5 @@
-slave1  ansible_host=84.201.168.220  ansible_user=root
-slave2  ansible_host=84.201.168.73   ansible_user=root
+slave1  ansible_host=51.250.33.211  ansible_user=root
+slave2  ansible_host=51.250.33.186   ansible_user=root
 nexus   ansible_host=84.201.150.198   ansible_user=root
 
 
