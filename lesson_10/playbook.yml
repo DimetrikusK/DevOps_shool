@@ -10,6 +10,11 @@
         name: docker.io
         state: present
 
+    - name: install python
+      apt:
+        name: python
+        state: present
+
 
 - name: up nexus
   hosts: nexus
