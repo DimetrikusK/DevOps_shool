@@ -20,7 +20,6 @@
       docker_container:
         name: nexus
         image: sonatype/nexus3
-        state: present
         user: root
         volumes:
           - "/app/nexus:/nexus-data"
