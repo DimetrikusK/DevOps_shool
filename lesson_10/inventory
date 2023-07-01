@@ -4,10 +4,10 @@ slave1  ansible_host=51.250.33.211   ansible_user=root
 slave2  ansible_host=51.250.33.186   ansible_user=root
 
 [jenkins]
-jenkins
+jenkins_host
 
 [nexus]
-nexus
+nexus_host
 
 [agent_one]
 slave1
