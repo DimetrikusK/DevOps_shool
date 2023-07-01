@@ -5,15 +5,17 @@
 
 
   tasks:
+    - name: install python
+      apt:
+        name: python3
+        state: present
+
     - name: install docker
       apt:
         name: docker.io
         state: present
 
-    - name: install python
-      apt:
-        name: python
-        state: present
+
 
 
 - name: up nexus
