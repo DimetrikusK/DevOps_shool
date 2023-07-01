@@ -1,1 +1,31 @@
-1
+---
+- name: install
+  hosts: all
+  become: true
+
+
+  tasks:
+    - name: install docker
+      apt:
+        name: docker.io
+        state: present
+
+
+- name: up nexus
+  hosts: nexus
+  become: true
+
+  tasks:
+    - name: create container nexus
+      docker_container:
+        name: nexus
+        image: sonatype/nexus3
+        user: root
+        volumes:
+          - "/app/nexus:/nexus-data"
+          ports:
+            - "8081:8081"
+          restart: on-failure:3
+
+
+
