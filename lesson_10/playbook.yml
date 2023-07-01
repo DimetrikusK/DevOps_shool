@@ -25,7 +25,6 @@
           - "/app/nexus:/nexus-data"
         ports:
           - "8081:8081"
-        restart: on-failure:1
 
 
 
