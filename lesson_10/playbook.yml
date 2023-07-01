@@ -20,12 +20,13 @@
       docker_container:
         name: nexus
         image: sonatype/nexus3
+        state: present
         user: root
         volumes:
           - "/app/nexus:/nexus-data"
         ports:
           - "8081:8081"
-
+        restart: true
 
 
 
