@@ -22,9 +22,9 @@
         image: sonatype/nexus3
         user: root
         volumes:
-          - "/app/nexus:/nexus-data"
+          - /app/nexus:/nexus-data
         ports:
-          - "8081:8081"
+          - 8081:8081
         restart: true
 
 
