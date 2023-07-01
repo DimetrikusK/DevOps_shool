@@ -9,7 +9,7 @@
     - name: install docker
       apt:
         name: docker.io
-        state: present
+        state: install
 
 
 - name: up nexus
