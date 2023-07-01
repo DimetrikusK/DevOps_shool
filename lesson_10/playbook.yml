@@ -23,9 +23,9 @@
         user: root
         volumes:
           - "/app/nexus:/nexus-data"
-          ports:
-            - "8081:8081"
-          restart: on-failure:3
+        ports:
+          - "8081:8081"
+        restart: on-failure:3
 
 
 
