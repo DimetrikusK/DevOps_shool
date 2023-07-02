@@ -48,13 +48,13 @@
 
 
 - name: install agent one
-  hosts: agentOne
+  hosts: agent_one
   become: true
 
   tasks:
     - name: start agent one
       docker_container:
-        name: agentOne
+        name: agent_one
         image: jenkins/ssh-agent:jdk11
         user: root
         restart: true
@@ -69,16 +69,15 @@
           JENKINS_AGENT_SSH_PUBKEY: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9i3jRWpjicRhw8h377DczNABe8IomxAnJMJE9wdA0+lG28++nyEoqNQ2ezcXUpILjM6izj+yqQT1LLcFD+VZ6wNwv4qOufVjRHpSDW32m/V9o03D8KTo7BdN29pdLlryc69b/guglr5hu79NvaHdZ4vnkZdf27oucqf+Da1sckC+681Ps13trdgAFmORWEv+FHHM6J84Nnk8hL92ytZJ8Hd9xM1yjbjmLjpZORs21ITwnpVeBNXp1654tlxpoBe2pFsYXOtSJJMdYNoz5tF9lCm87vtSZkWIEB/7ibrXPlEHKuHTbRelkpXIUL4ibOBVSisTWPmwnoPmTkK2ZC/Gr4KlWI7j7HFvy90fRKijf+e+E0I8blJY87AhLGkvcReEFVcMC4zRX1EEkIQU9tpFfm0at3Lk3/5PW8pf9fwex+bXmWslBZivfKuzG80GWfYYDpydV2a32WC3x5aRtLj+hRo0GRuc5OCj1HGGu3Qs/ZqzySsK4pJDu2ZCjP6ze4SU= root@ansible"
 
 
-- name: install agent one
-  hosts: agentTwo
+- name: install agent two
+  hosts: agent_two
   become: true
 
   tasks:
     - name: start agent two
       docker_container:
-        name : agentTwo
+        name : agent_two
         user: root
-        container_name: agent_two
         restart: true
         volumes:
           - /app/jenkins/agent/java:/usr/local/openjdk-11/bin/java
