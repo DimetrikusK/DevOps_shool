@@ -79,7 +79,7 @@
         name : agent_two
         user: root
         container_name: agent_two
-        restart: always
+        restart: true
         volumes:
           - /app/jenkins/agent/java:/usr/local/openjdk-11/bin/java
           - /app/jenkins/agent/:/home/jenkins/agent
