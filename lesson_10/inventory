@@ -1,7 +1,7 @@
-nexus_host   ansible_host=84.201.150.198  ansible_user=root
-jenkins_host ansible_host=84.201.150.187  ansible_user=root
-slave1       ansible_host=51.250.33.211   ansible_user=root
-slave2       ansible_host=51.250.33.186   ansible_user=root
+nexus_host   ansible_host=51.250.40.130  ansible_user=root
+jenkins_host ansible_host=84.201.151.173  ansible_user=root
+agent1       ansible_host=51.250.44.134   ansible_user=root
+agent2       ansible_host=51.250.38.130   ansible_user=root
 
 [jenkins]
 jenkins_host
@@ -10,7 +10,7 @@ jenkins_host
 nexus_host
 
 [agent_one]
-slave1
+agent1
 
 [agent_two]
-slave2
+agent2
