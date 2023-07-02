@@ -9,8 +9,8 @@ jenkins_host
 [nexus]
 nexus_host
 
-[agent_one]
+[build]
 agent1
 
-[agent_two]
+[deploy]
 agent2
