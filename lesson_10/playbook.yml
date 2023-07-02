@@ -70,7 +70,7 @@
 
 
 - name: install agent one
-  hosts: agent_one
+  hosts: agent_two
   become: true
 
   tasks:
