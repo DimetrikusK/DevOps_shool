@@ -5,6 +5,11 @@
 
 
   tasks:
+    - name: update
+      apt:
+        name: update
+        state: present
+
     - name: Install Git
       apt:
         name: git-all
