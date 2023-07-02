@@ -48,13 +48,13 @@
 
 
 - name: install agent one
-  hosts: agent_one
+  hosts: agentOne
   become: true
 
   tasks:
     - name: start agent one
       docker_container:
-        name: agent_one
+        name: agentOne
         image: jenkins/ssh-agent:jdk11
         user: root
         restart: true
@@ -70,13 +70,13 @@
 
 
 - name: install agent one
-  hosts: agent_two
+  hosts: agentTwo
   become: true
 
   tasks:
     - name: start agent two
       docker_container:
-        name : agent_two
+        name : agentTwo
         user: root
         container_name: agent_two
         restart: true
