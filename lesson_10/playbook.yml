@@ -77,6 +77,7 @@
     - name: start agent two
       docker_container:
         name : agent_two
+        image: jenkins/ssh-agent:jdk11
         user: root
         restart: true
         volumes:
