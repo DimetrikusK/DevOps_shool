@@ -1,10 +1,5 @@
 ---
-- name: install maven to build agent
-  hosts: build
-  become: true
-
-  tasks:
-    - name: install maven
-      apt:
-        name: maven
-        state: present
+- name: install maven
+  apt:
+    name: maven
+    state: present

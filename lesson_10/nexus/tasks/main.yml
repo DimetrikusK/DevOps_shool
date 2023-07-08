@@ -1,16 +1,11 @@
 ---
-- name: up nexus
-  hosts: nexus
-  become: true
-
-  tasks:
-    - name: start container nexus
-      docker_container:
-        name: nexus
-        image: sonatype/nexus3
-        user: root
-        volumes:
-          - /app/nexus:/nexus-data
-        ports:
-          - 8081:8081
-        restart: true
+- name: start container nexus
+  docker_container:
+    name: nexus
+    image: sonatype/nexus3
+    user: root
+    volumes:
+      - /app/nexus:/nexus-data
+    ports:
+      - 8081:8081
+    restart: true
