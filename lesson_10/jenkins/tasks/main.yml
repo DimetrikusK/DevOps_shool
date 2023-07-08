@@ -1,2 +1,17 @@
 ---
-# tasks file for jenkins
+- name: up jenkins
+  hosts: jenkins
+  become: true
+
+  tasks:
+    - name: start container jenkins
+      docker_container:
+        name: jenkins
+        image: jenkins/jenkins:lts-jdk11
+        user: root
+        volumes:
+          - /app/jenkins:/var/jenkins_home
+        ports:
+          - 8082:8080
+          - 50000:50000
+        restart: true

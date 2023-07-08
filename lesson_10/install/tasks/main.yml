@@ -1,2 +1,16 @@
 ---
-# tasks file for install
+- name: install git and docker
+  hosts: all
+  become: true
+
+
+  tasks:
+    - name: update
+      apt:
+        update_cache: true
+
+    - name: install packeges
+      apt: name={ { item } } state = present
+      with_items:
+        - git-all
+        - docker.io

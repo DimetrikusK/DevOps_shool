@@ -1,112 +1,39 @@
 ---
-- name: install git and docker
+- name: install pakages
   hosts: all
-  become: true
+  become: yes
 
-
-  tasks:
-    - name: update
-      apt:
-        update_cache: true
-
-    - name: Install Git
-      apt:
-        name: git-all
-        state: present
-
-    - name: install docker
-      apt:
-        name: docker.io
-        state: present
+  roles:
+    - install
 
 
 - name: up nexus
   hosts: nexus
-  become: true
+  become: yes
 
-  tasks:
-    - name: start container nexus
-      docker_container:
-        name: nexus
-        image: sonatype/nexus3
-        user: root
-        volumes:
-          - /app/nexus:/nexus-data
-        ports:
-          - 8081:8081
-        restart: true
+  roles:
+    - nexus
 
 
 - name: up jenkins
-  hosts: jenkins
-  become: true
+  hosts: nexus
+  become: yes
 
-  tasks:
-    - name: start container jenkins
-      docker_container:
-        name: jenkins
-        image: jenkins/jenkins:lts-jdk11
-        user: root
-        volumes:
-          - /app/jenkins:/var/jenkins_home
-        ports:
-          - 8082:8080
-          - 50000:50000
-        restart: true
+  roles:
+    - jenkins
 
 
-- name: install maven to build agent
+- name: install mvn
   hosts: build
-  become: true
+  become: yes
 
-  tasks:
-    - name: install maven
-      apt:
-        name: maven
-        state: present
+  roles:
+    - build
 
 
-- name: install tomcat to deploy agent
+- name: install tomcat
   hosts: deploy
-  become: true
+  become: yes
 
-  tasks:
-    - name: Install JAVA
-      apt:
-        name: default-jdk
-        state: present
-
-    - name: Create a Tomcat User
-      user:
-        name: tomcat
-
-    - name: Create a Tomcat Group
-      group:
-        name: tomcat
-
-    - name: Create a Tomcat Directory
-      file:
-        path: /opt/tomcat9
-        owner: tomcat
-        group: tomcat
-        mode: 755
-        recurse: yes
-
-    - name: download & unarchive tomcat9
-      unarchive:
-        src: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.76/bin/apache-tomcat-9.0.76.tar.gz
-        dest: /opt/tomcat9
-        remote_src: yes
-
-    - name: Change ownership of tomcat directory
-      file:
-        path: /opt/tomcat9
-        owner: tomcat
-        group: tomcat
-        mode: "u+rwx,g+rx,o=rx"
-        recurse: yes
-
-    - name: Start Tomcat 9 on sever
-      shell:
-        cmd: ./catalina.sh run &
-        chdir: /opt/tomcat9/apache-tomcat-9.0.76/bin
+  roles:
+    - deploy
