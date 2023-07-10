@@ -7,6 +7,6 @@
     volumes:
       - /app/jenkins:/var/jenkins_home
     ports:
-      - 8082:8080
+      - 8080:8080
       - 50000:50000
     restart: true
