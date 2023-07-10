@@ -16,7 +16,7 @@
 
 
 - name: up jenkins
-  hosts: nexus
+  hosts: jenkins
   become: yes
 
   roles:
