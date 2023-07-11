@@ -1,7 +1,7 @@
 nexus_host   ansible_host=51.250.40.239    ansible_user=root
 jenkins_host ansible_host=51.250.37.34     ansible_user=root
-agent1       ansible_host=51.250.40.18     ansible_user=root
-agent2       ansible_host=51.250.43.5      ansible_user=root
+agent1       ansible_host=51.250.43.5      ansible_user=root
+agent2       ansible_host=51.250.45.123    ansible_user=root
 
 [jenkins]
 jenkins_host
