@@ -31,9 +31,9 @@
     - build
 
 
-- name: install tomcat
-  hosts: deploy
-  become: yes
-
-  roles:
-    - deploy
+#- name: install tomcat
+#  hosts: deploy
+#  become: yes
+#
+#  roles:
+#    - deploy
