@@ -9,7 +9,7 @@ RUN wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apa
     mv apache-maven-3.6.3 /opt/
 
 #install docker
-RUN apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+RUN apt-get install docker-ce
 
 #clear cache
 RUN apt-get clean
