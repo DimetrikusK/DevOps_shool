@@ -11,7 +11,7 @@ RUN wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apa
 #install docker
 RUN apt-get install -y apt-transport-https ca-certificates curl software-properties-common
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb\_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb\_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt-get update
 RUN apt-cache policy docker-ce
 RUN install docker-ce
