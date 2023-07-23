@@ -1,8 +1,8 @@
-FROM openjdk:11-jre-slim
+FROM openjdk:8u151-stretch
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \
-    apt-get install wget -y
+
 
 #install maven
 RUN wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz && \
