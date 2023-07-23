@@ -23,7 +23,7 @@ RUN echo \
       "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
       tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt-get update
-RUN apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker.io
+RUN apt-get -y docker.io
 
 #clear cache
 RUN apt-get clean
