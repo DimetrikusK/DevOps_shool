@@ -1,5 +1,7 @@
 FROM openjdk:11-jre-slim
 
+USER root
+
 RUN apt-get update -y && \
     apt-get install wget -y && \
     apt-get install curl -y && \
@@ -26,3 +28,4 @@ RUN apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugi
 #clear cache
 RUN apt-get clean
 
+sr
