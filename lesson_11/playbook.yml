@@ -1,18 +1,11 @@
 ---
 
-- name: start container jenkins
+- name: install Jenkins
   hosts: jenkins
   become: true
 
   tasks:
     - name: install jenkins
-      docker_container:
+      apt:
         name: jenkins
-        image: jenkins/jenkins:lts-jdk11
-        user: root
-        volumes:
-          - /app/jenkins:/var/jenkins_home
-        ports:
-          - 8080:8080
-          - 50000:50000
-        restart: true
+        state: presents
