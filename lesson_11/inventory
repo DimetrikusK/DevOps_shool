@@ -1,4 +1,4 @@
-jenkins_host ansible_host=51.250.45.136    ansible_user=root
+jenkins_host ansible_host=51.250.35.8    ansible_user=root
 agent        ansible_host=51.250.41.251  ansible_user=root
 
 [jenkins]
