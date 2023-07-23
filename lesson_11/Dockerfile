@@ -1,9 +1,9 @@
 FROM openjdk:11-jre-slim
 
 RUN apt-get update -y && \
-    apt-get install wget && \
-    apt-get install curl && \
-    apt-get install dpkg
+    apt-get install wget -y && \
+    apt-get install curl -y && \
+    apt-get install dpkg -y
 
 #install maven
 RUN wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz && \
