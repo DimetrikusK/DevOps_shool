@@ -24,7 +24,6 @@ RUN echo \
       tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt-get update
 RUN apt-get install docker.io -y
-RUN service docker start
 
 #clear cache
 RUN apt-get clean
