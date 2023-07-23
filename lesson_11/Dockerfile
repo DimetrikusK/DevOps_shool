@@ -23,7 +23,8 @@ RUN echo \
 RUN apt-get update
 RUN apt-get install docker.io -y
 RUN groupadd -g 497 docker && \
-    gpasswd -a jenkins docker
+    gpasswd -a jenkins docker && \
+    service docker start
 
 #clear cache
 RUN apt-get clean
