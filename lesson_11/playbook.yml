@@ -8,4 +8,4 @@
     - name: install jenkins
       apt:
         name: jenkins
-        state: presents
+        state: present
