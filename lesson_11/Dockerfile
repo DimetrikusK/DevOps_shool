@@ -23,7 +23,7 @@ RUN echo \
       "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
       tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt-get update
-RUN apt-get -y docker.io
+RUN apt-get install docker.io -y
 
 #clear cache
 RUN apt-get clean
