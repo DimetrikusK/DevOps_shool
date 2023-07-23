@@ -3,7 +3,7 @@ pipeline {
         docker {
             image 'dimetrikusk/m3:latest'
             args '--privileged -u root:sudo'
-            command "dockerd"
+            command "service docker start"
 
         }
     }
