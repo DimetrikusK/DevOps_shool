@@ -23,10 +23,10 @@
         update_cache: yes
         state: latest
 
-    - name: install java
-      apt:
-        name: {{java}}
-        state: present
+#    - name: install java
+#      apt:
+#        name: {{java}}
+#        state: present
 
     - name: install jenkins
       apt:
