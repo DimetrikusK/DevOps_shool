@@ -1,0 +1,23 @@
+pipeline {
+    agent {
+        docker {
+            image 'dimetrikusk/m3:latest'
+        }
+    }
+
+    stages {
+
+        stage('Copy project') {
+            steps {
+                git branch: 'main', credentialsId: 'fe5e8700-d111-415d-b074-d45baf7ec064', url: 'https://github.com/DimetrikusK/boxfuse.git'
+            }
+        }
+        stage('Build project') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+        }
+
+
+    }
