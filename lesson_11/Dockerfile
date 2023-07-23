@@ -1,7 +1,5 @@
 FROM openjdk:11-jre-slim
 
-USER root
-
 RUN apt-get update -y && \
     apt-get install wget -y && \
     apt-get install curl -y && \
@@ -24,6 +22,8 @@ RUN echo \
       tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt-get update
 RUN apt-get install docker.io -y
+RUN groupadd -g 497 docker && \
+    gpasswd -a jenkins docker
 
 #clear cache
 RUN apt-get clean
