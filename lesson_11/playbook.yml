@@ -1,7 +1,7 @@
 ---
 
 - name: install Jenkins
-  hosts: jenkins
+  hosts: agent
   become: true
 
   tasks:
@@ -16,7 +16,7 @@
       become: true
 
     - name: ensure te repository is configure
-      apt_repository: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
+      apt_repository: repo='deb http://pkg.jenkins.io/debian-stable binary/' state=present
       become: yes
     - name: update apt cache
       apt:
