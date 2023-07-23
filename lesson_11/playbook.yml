@@ -5,7 +5,36 @@
   become: true
 
   tasks:
+    - name: update
+      apt:
+        update_cache: true
+
+    - name: Download Jenkins repo
+      apt_key:
+        url: 'https://pkg.jenkins.io/debian-stable/jenkins.io.key'
+        state: present
+      become: true
+
+    - name: ensure te repository is configure
+      apt_repository: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
+      become: yes
+    - name: update apt cache
+      apt:
+        update_cache: yes
+        state: latest
+
+    - name: install java
+      apt:
+        name: {{java}}
+        state: present
+
     - name: install jenkins
       apt:
         name: jenkins
         state: present
+
+    - name: start jenkins
+      service:
+        name: jenkins
+        enabled: true
+        state: started
