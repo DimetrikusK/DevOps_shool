@@ -27,5 +27,3 @@ RUN apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugi
 
 #clear cache
 RUN apt-get clean
-
-sr
