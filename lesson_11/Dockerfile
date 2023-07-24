@@ -7,7 +7,7 @@ RUN apt-get update -y && \
     apt-get install -y gpg
 
 #install java
-RUN apt install default-jdk -y
+RUN apt-get install default-jdk -y
 
 #install maven
 RUN apt-get install maven -y
