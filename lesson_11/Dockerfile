@@ -7,10 +7,10 @@ RUN apt-get update -y && \
     apt-get install -y gpg
 
 #install maven
-RUN apt-get install maven -y
-#RUN wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz && \
-#    tar -xvf apache-maven-3.6.3-bin.tar.gz && \
-#    mv apache-maven-3.6.3 /opt/
+#RUN apt-get install maven -y
+RUN wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz && \
+    tar -xvf apache-maven-3.6.3-bin.tar.gz && \
+    mv apache-maven-3.6.3 /opt/
 
 #install docker
 RUN for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do apt-get remove $pkg; done
