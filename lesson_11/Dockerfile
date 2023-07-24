@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:11-jre-slim
 
 RUN apt-get update -y && \
     apt-get install wget -y && \
