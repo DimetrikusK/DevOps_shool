@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-slim
+FROM ubuntu:18.04
 
 RUN apt-get update -y && \
     apt-get install wget -y && \
@@ -6,9 +6,11 @@ RUN apt-get update -y && \
     apt-get install dpkg -y &&\
     apt-get install -y gpg
 
+#install java
+RUN apt install default-jdk -y
+
 #install maven
-RUN apt-get update -y && \
-    apt-get install maven -y
+RUN apt-get install maven -y
 #RUN wget wget http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz && \
 #    tar -zxvf apache-maven-3.3.9-bin.tar.gz  && \
 #    mv apache-maven-3.3.9 /opt/
