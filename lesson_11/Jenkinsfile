@@ -17,6 +17,11 @@ pipeline {
                 sh 'mvn package'
             }
         }
+        stage ('Make docker images'){
+            steps{
+                sh 'docker build -t boxfuse .'
+            }
+        }
         }
 
 
