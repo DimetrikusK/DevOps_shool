@@ -21,7 +21,7 @@ pipeline {
         }
         stage ('Make docker images'){
             steps{
-                sh 'cd target &&  docker build -t dimetrikusk/boxfuse:latest .'
+                sh 'docker build -t dimetrikusk/boxfuse:latest .'
             }
         }
 
