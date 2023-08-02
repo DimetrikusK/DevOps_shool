@@ -1,7 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'dimetrikusk/m3:latest'
+            image 'dimetrikusk/m3:test1'
+            args '--privileged'
         }
     }
 
@@ -15,7 +16,7 @@ pipeline {
         stage('Build project') {
             steps {
                 sh "java --version"
-                sh 'mvn --version'
+                sh 'mvn package'
                 sh 'ls -la target'
             }
         }
