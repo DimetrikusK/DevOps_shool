@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'dimetrikusk/m3:test1'
-            args '--privileged'
+            args '--privileged=true'
         }
     }
 
@@ -20,6 +20,7 @@ pipeline {
         }
         stage ('Make docker images'){
             steps{
+                sh 'service docker start'
                 sh 'docker build -t dimetrikusk/boxfuse:latest .'
             }
         }
