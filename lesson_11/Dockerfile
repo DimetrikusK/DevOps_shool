@@ -34,4 +34,6 @@ RUN apt-get update -y && \
     apt-get update -y && \
     apt-get install docker-ce -y
 
+# Clear cache
+RUN apt-get clean -y
 
