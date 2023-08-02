@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image ('dimetrikusk/m3:test1').inside('--privileged')
-//             args '--privileged'
+            image 'dimetrikusk/m3:test1'
+            args '--privileged=root'
         }
     }
 
