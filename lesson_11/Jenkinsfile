@@ -20,6 +20,7 @@ pipeline {
         }
         stage ('Make docker images'){
             steps{
+                sh 'apt-get install sudo'
                 sh 'service docker start'
                 sh 'docker build -t dimetrikusk/boxfuse:latest .'
             }
