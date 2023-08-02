@@ -14,12 +14,12 @@ pipeline {
         }
         stage('Build project') {
             steps {
-                sh 'mvn package'
+                sh 'mvn --version'
             }
         }
         stage ('Make docker images'){
             steps{
-                sh 'docker build -t boxfuse .'
+                sh 'docker build -t dimetrikusk/boxfuse:latest .'
             }
         }
         }

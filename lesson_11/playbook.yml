@@ -21,7 +21,7 @@
     - name: update apt cache
       apt:
         update_cache: yes
-        state: latest
+        state: latestcat in
 
 #    - name: install java
 #      apt:
