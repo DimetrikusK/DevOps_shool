@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'dimetrikusk/m3:test1'
             args '--privileged'
+            sh 'service docker start'
         }
     }
 
@@ -15,7 +16,6 @@ pipeline {
         }
         stage('Build project') {
             steps {
-                sh "sudo service docker start"
                 sh 'mvn package'
             }
         }
