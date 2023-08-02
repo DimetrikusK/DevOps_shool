@@ -15,9 +15,8 @@ pipeline {
         }
         stage('Build project') {
             steps {
-                sh "java --version"
+                sh "service docker start"
                 sh 'mvn package'
-                sh 'ls -la target'
             }
         }
         stage ('Make docker images'){
