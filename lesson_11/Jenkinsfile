@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build project') {
             steps {
-                sh 'ls -la'
+                sh 'mvn package'
             }
         }
         stage ('Make docker images'){
