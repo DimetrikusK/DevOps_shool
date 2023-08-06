@@ -6,13 +6,6 @@ pipeline {
         }
     }
 
-//    stages {
-
-//        stage('Copy config ssh') {
-//            sh 'ssh-keyscan -H 84.201.144.243 >> ~/.ssh/known_hosts'
-//        }
-//    }
-
         stage('Copy project') {
             steps {
                 git branch: 'main', credentialsId: 'dimetrikuskGit', url: 'https://github.com/DimetrikusK/boxfuse.git'
@@ -40,4 +33,3 @@ pipeline {
 
 
     }
-//}
