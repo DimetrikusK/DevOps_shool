@@ -38,6 +38,6 @@ RUN apt-get update -y && \
 RUN apt-get clean -y
 
 #Create user and start dockerd
-RUN  useradd -ms /bin/bash newuser
+RUN  useradd -ms /bin/bash jenkins
 USER jenkins:docker
 RUN  service docker start
