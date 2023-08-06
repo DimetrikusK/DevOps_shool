@@ -24,6 +24,12 @@ pipeline {
                 sh 'docker build -t dimetrikusk/boxfuse:latest . && docker push dimetrikusk/boxfuse:latest'
             }
         }
+//        stage ('Run docker on agent2'){
+//            steps{
+//
+//            }
+
+        }
         }
 
 
