@@ -6,7 +6,7 @@ pipeline {
         }
     }
 
-    stages {
+//    stages {
 
 //        stage('Copy config ssh') {
 //            sh 'ssh-keyscan -H 84.201.144.243 >> ~/.ssh/known_hosts'
@@ -40,4 +40,4 @@ pipeline {
 
 
     }
-}
+//}
