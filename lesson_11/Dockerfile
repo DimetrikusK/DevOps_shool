@@ -37,3 +37,5 @@ RUN apt-get update -y && \
 # Clear cache
 RUN apt-get clean -y
 
+USER jenkins:docker
+RUN service docker start
