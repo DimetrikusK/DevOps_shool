@@ -20,7 +20,7 @@ pipeline {
         }
         stage ('Make docker images'){
             steps{
-                sh 'sleep 665'
+                sh 'sleep 1165'
                 sh 'docker build -t dimetrikusk/boxfuse:latest .'
             }
         }
