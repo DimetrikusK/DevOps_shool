@@ -27,9 +27,9 @@ pipeline {
 //        stage ('Run docker on agent2'){
 //            steps{
 //
-//            }
-
-        }
+//        }
+//
+//        }
         }
 
 
