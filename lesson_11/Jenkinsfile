@@ -13,23 +13,19 @@ pipeline {
                 git branch: 'main', credentialsId: 'dimetrikuskGit', url: 'https://github.com/DimetrikusK/boxfuse.git'
             }
         }
+
         stage('Build project') {
             steps {
                 sh 'mvn package'
             }
         }
+
         stage ('Make docker images'){
             steps{
                 sh 'service docker start && sleep 5'
                 sh 'docker build -t dimetrikusk/boxfuse:latest . && docker push dimetrikusk/boxfuse:latest'
             }
         }
-//        stage ('Run docker on agent2'){
-//            steps{
-//
-//        }
-//
-//        }
         }
 
 
