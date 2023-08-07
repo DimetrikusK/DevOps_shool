@@ -32,11 +32,14 @@ pipeline {
             }
         }
 
-    agent{
-        agent_two
-    }
         stage ('Run app'){
+            agent {
+                node {
+                    label 'agent_two'
+                }
+            }
             steps {
+//              sh 'ssh-keyscan -H devbuild-srv01 >> ~/.ssh/known_hosts'
                 sh 'docker run dimetrikusk/boxfuse:latest'
             }
         }
