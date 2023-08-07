@@ -15,13 +15,14 @@ pipeline {
 
         stage('Build project') {
             steps {
+                sh 'sleep 5000'
                 sh 'mvn package'
             }
         }
 
         stage('Make docker images') {
             steps {
-                sh 'service docker start && sleep 5000'
+                sh 'service docker start && sleep 5'
                 sh 'docker build -t dimetrikusk/boxfuse:latest . && docker push dimetrikusk/boxfuse:latest'
             }
         }
