@@ -31,5 +31,10 @@ pipeline {
                 sh 'ssh jenkins@84.201.146.168 "docker run dimetrikusk/boxfuse:latest"'
             }
         }
+
+    agent agent_two
+        stage ('Run app'){
+            sh 'docker run dimetrikusk/boxfuse:latest'
+        }
     }
     }
