@@ -1,17 +1,21 @@
 FROM ubuntu:20.04
+
 # Update system
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install wget -y && \
     apt-get install curl -y && \
     apt-get install dpkg -y &&\
-    apt-get install gpg -y
+    apt-get install gpg -y \
+
 # Install java
 RUN apt-get update -y && \
-    apt-get install default-jdk -y
+    apt-get install default-jdk -y \
+
 # Install maven
 RUN apt-get update -y && \
-    apt-get install maven -y
+    apt-get install maven -y \
+
 # Install docker
 RUN apt-get update -y && \
     apt-get install apt-transport-https ca-certificates curl software-properties-common -y && \
@@ -19,6 +23,7 @@ RUN apt-get update -y && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && \
     apt-get update -y && \
     apt-get install docker-ce -y \
+
 # Create user and copy ssh key
 RUN useradd -ms /bin/bash jenkins && \
     usermod -aG sudo jenkins
