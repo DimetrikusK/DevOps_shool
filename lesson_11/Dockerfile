@@ -27,7 +27,7 @@ RUN apt-get update -y && \
 
 # Create user and copy ssh key
 RUN useradd -ms /bin/bash jenkins && \
-    usermod -aG sudo jenkins \
+    usermod -aG sudo jenkins
 USER jenkins
 WORKDIR /home/jenkins/.ssh
 ADD id_rsa .
