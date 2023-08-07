@@ -28,7 +28,7 @@ pipeline {
 
         stage('Run app'){
             steps {
-                sh 'su - jenkins -с "ssh jenkins@84.201.151.91 "docker run dimetrikusk/boxfuse""'
+                sh 'su -s /bin/bash jenkins && whoami && sleep 10 && ssh jenkins@84.201.151.91 "docker run dimetrikusk/boxfuse"'
             }
         }
 
