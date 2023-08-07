@@ -20,7 +20,6 @@ RUN apt-get update -y && \
     apt-get update -y && \
     apt-get install docker-ce -y \
 # Create user and copy ssh key
-WORKDIR /home/jenkins/.ssh
 RUN useradd -ms /bin/bash jenkins && \
     usermod -aG sudo jenkins
 WORKDIR /home/jenkins/.ssh
