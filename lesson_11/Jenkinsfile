@@ -15,7 +15,6 @@ pipeline {
 
         stage('Build project') {
             steps {
-                sh 'sleep 5000'
                 sh 'mvn package'
             }
         }
