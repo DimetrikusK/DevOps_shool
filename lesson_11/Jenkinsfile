@@ -21,10 +21,10 @@ pipeline {
                 sh 'docker build -t dimetrikusk/boxfuse:latest . && docker push dimetrikusk/boxfuse:latest'
             }
         }
-        stage('Run app') {
-            steps {
-                sh 'ssh root@84.201.146.168 "docker run dimetrikusk/boxfuse:latest"'
-            }
-        }
+//        stage('Run app') {
+//            steps {
+//                sh 'ssh root@84.201.146.168 "docker run dimetrikusk/boxfuse:latest"'
+//            }
+//        }
 
     }
