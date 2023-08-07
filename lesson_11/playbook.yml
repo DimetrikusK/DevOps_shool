@@ -4,6 +4,11 @@
   become: true
 
   tasks:
+    - name: install java
+      apt:
+        name: java
+        state: present
+
     - name: download jenkins repo
       apt_key:
         url: 'https://pkg.jenkins.io/debian-stable/jenkins.io.key'
