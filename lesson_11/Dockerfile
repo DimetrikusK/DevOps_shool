@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 # Update system
 RUN apt-get update -y && \
     apt-get upgrade -y && \
-    apt-get install openssh-server && \
+    apt-get install openssh-server -y && \
     apt-get install wget -y && \
     apt-get install curl -y && \
     apt-get install dpkg -y &&\
