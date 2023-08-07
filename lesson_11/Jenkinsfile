@@ -36,7 +36,9 @@ pipeline {
         agent_two
     }
         stage ('Run app'){
-            sh 'docker run dimetrikusk/boxfuse:latest'
+            steps {
+                sh 'docker run dimetrikusk/boxfuse:latest'
+            }
         }
     }
     }
