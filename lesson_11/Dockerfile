@@ -6,7 +6,7 @@ RUN apt-get update -y && \
     apt-get install wget -y && \
     apt-get install curl -y && \
     apt-get install dpkg -y &&\
-    apt-get install gpg -y \
+    apt-get install -y gpg \
 
 # Install java
 RUN apt-get update -y && \
@@ -29,7 +29,7 @@ RUN useradd -ms /bin/bash jenkins && \
     usermod -aG sudo jenkins
 WORKDIR /home/jenkins/.ssh
 RUN chmod 700 /home/jenkins/.ssh && \
-    chmod 600 /home/jenkins/.ssh/id_rsa
+    chmod 600 /home/jenkins/.ssh/id_rsa \
 USER jenkins
 ADD id_rsa .
 
