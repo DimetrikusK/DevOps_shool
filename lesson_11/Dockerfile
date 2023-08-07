@@ -22,13 +22,13 @@ RUN apt-get update -y && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && \
     apt-get update -y && \
-    apt-get install docker-ce -y
+    apt-get install docker-ce -y \
 
 # Create user and copy ssh key
 RUN useradd -ms /bin/bash jenkins && \
-    usermod -aG sudo jenkins
+    usermod -aG sudo jenkins \
+USER jenkins
 WORKDIR /home/jenkins/.ssh
 ADD id_rsa .
 
-# Clear cache
-RUN apt-get clean -y
+
