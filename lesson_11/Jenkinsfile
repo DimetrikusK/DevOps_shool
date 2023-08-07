@@ -26,12 +26,6 @@ pipeline {
             }
         }
 
-//        stage('Run app') {
-//            steps {
-//                sh 'ssh jenkins@84.201.146.168 "docker run dimetrikusk/boxfuse:latest"'
-//            }
-//        }
-
         stage('Run app'){
             agent {
                 node {
@@ -39,7 +33,6 @@ pipeline {
                 }
             }
             steps {
-//              sh 'ssh-keyscan -H devbuild-srv01 >> ~/.ssh/known_hosts'
                 sh 'docker run dimetrikusk/boxfuse:latest'
             }
         }
