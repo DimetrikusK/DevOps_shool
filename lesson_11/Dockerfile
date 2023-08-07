@@ -6,15 +6,15 @@ RUN apt-get update -y && \
     apt-get install wget -y && \
     apt-get install curl -y && \
     apt-get install dpkg -y &&\
-    apt-get install -y gpg \
+    apt-get install -y gpg
 
 # Install java
 RUN apt-get update -y && \
-    apt-get install default-jdk -y \
+    apt-get install default-jdk -y
 
 # Install maven
 RUN apt-get update -y && \
-    apt-get install maven -y \
+    apt-get install maven -y
 
 # Install docker
 RUN apt-get update -y && \
@@ -22,7 +22,7 @@ RUN apt-get update -y && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && \
     apt-get update -y && \
-    apt-get install docker-ce -y \
+    apt-get install docker-ce -y
 
 # Create user and copy ssh key
 RUN useradd -ms /bin/bash jenkins && \
