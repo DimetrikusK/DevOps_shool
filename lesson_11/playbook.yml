@@ -6,7 +6,7 @@
   tasks:
     - name: install java
       apt:
-        name: java
+        name: default-jre
         state: present
 
     - name: download jenkins repo
