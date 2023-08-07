@@ -1,6 +1,6 @@
-jenkins_host ansible_host=84.201.146.142  ansible_user=root
-agent_one    ansible_host=84.201.144.243  ansible_user=root
-agent_two    ansible_host=84.201.146.168  ansible_user=root
+jenkins_host   ansible_host=84.201.149.152    ansible_user=root
+agent_one      ansible_host=51.250.44.200     ansible_user=root
+agent_two      ansible_host=84.201.146.168    ansible_user=root
 
 [jenkins]
 jenkins_host
