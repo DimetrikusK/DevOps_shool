@@ -28,9 +28,7 @@ RUN apt-get update -y && \
 RUN useradd -ms /bin/bash jenkins && \
     usermod -aG sudo jenkins
 WORKDIR /home/jenkins/.ssh
-RUN chmod 700 /home/jenkins/.ssh && \
-    chmod 600 /home/jenkins/.ssh/id_rsa
 USER jenkins
 ADD id_rsa .
-
-
+RUN chmod 700 /home/jenkins/.ssh && \
+    chmod 600 /home/jenkins/.ssh/id_rsa
