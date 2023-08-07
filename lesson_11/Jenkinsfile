@@ -28,7 +28,6 @@ pipeline {
 
         stage('Run app'){
             steps {
-                sh 'sleep 500'
                 sh 'ssh jenkins@84.201.151.91 docker run dimetrikusk/boxfuse:latest'
             }
         }
