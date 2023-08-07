@@ -1,32 +1,22 @@
 ---
-
-- name: install Jenkins
-  hosts: agent
+- name: install jenkins
+  hosts: install_jenkins
   become: true
 
   tasks:
-    - name: update
-      apt:
-        update_cache: true
-
-    - name: Download Jenkins repo
+    - name: download jenkins repo
       apt_key:
-        url: 'http://pkg.jenkins.io/debian-stable/jenkins.io.key'
+        url: 'https://pkg.jenkins.io/debian-stable/jenkins.io.key'
         state: present
       become: true
 
-    - name: ensure te repository is configure
-      apt_repository: repo='deb http://pkg.jenkins.io/debian-stable binary/' state=present
-      become: yes
+    - name: ensure to repository is configure
+      apt_repository:
+        repo:  'deb http://pkg.jenkins.io/debian-stable binary/'
+        state: present
     - name: update apt cache
       apt:
         update_cache: yes
-        state: latestcat in
-
-#    - name: install java
-#      apt:
-#        name: {{java}}
-#        state: present
 
     - name: install jenkins
       apt:
