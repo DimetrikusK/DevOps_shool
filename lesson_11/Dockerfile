@@ -33,5 +33,4 @@ ADD id_rsa .
 ADD known_hosts known_hosts
 RUN chmod 0700 /home/jenkins/.ssh && \
     chmod 600 /home/jenkins/.ssh/id_rsa && \
-    chown -R jenkins:jenkins /home/jenkins && \
-    echo "IdentityFile /home/jenkins/.ssh/id_rsa" >> /etc/ssh/ssh_config
+    chown -R jenkins:jenkins /home/jenkins &&
