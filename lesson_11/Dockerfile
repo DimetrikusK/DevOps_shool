@@ -29,7 +29,7 @@ RUN apt-get update -y && \
 RUN useradd -ms /bin/bash jenkins && \
     usermod -aG sudo jenkins
 WORKDIR /home/jenkins/.ssh
-RUN mkdir known_hosts
+#RUN mkdir known_hosts
 ADD id_rsa .
 ADD known_hosts home/jenkins/.ssh/known_hosts
 RUN chmod 0700 /home/jenkins/.ssh && \
