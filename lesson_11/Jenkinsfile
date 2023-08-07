@@ -27,14 +27,21 @@ pipeline {
         }
 
         stage('Run app'){
-            agent {
-                node {
-                    label 'agent_two'
-                }
-            }
             steps {
-                sh 'docker run dimetrikusk/boxfuse:latest'
+                sh 'ssh-keyscan -H 84.201.149.152 >> ~/.ssh/known_hosts'
+                sh 'ssh jenkins@84.201.146.168 && docker run dimetrikusk/boxfuse:latest'
             }
         }
+
+//        stage('Run app'){
+//            agent {
+//                node {
+//                    label 'agent_two'
+//                }
+//            }
+//            steps {
+//                sh 'docker run dimetrikusk/boxfuse:latest'
+//            }
+//        }
     }
     }
