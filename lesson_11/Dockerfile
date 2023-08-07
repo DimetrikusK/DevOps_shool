@@ -25,12 +25,12 @@ RUN apt-get update -y && \
     apt-get install docker-ce -y \
 
 # Create user and copy ssh key
-RUN useradd -ms /bin/bash jenkins && \
-    usermod -aG sudo jenkins \
-USER jenkins
 WORKDIR /home/jenkins/.ssh
-RUN chmod 700 /home/jenkins/.ssh && \
+RUN useradd -ms /bin/bash jenkins && \
+    usermod -aG sudo jenkins && \
+    chmod 700 /home/jenkins/.ssh && \
     chmod 600 /home/jenkins/.ssh/id_rsa
+USER jenkins
 ADD id_rsa .
 
 
