@@ -1,5 +1,4 @@
 FROM ubuntu:20.04
-
 # Update system
 RUN apt-get update -y && \
     apt-get upgrade -y && \
@@ -7,15 +6,12 @@ RUN apt-get update -y && \
     apt-get install curl -y && \
     apt-get install dpkg -y &&\
     apt-get install -y gpg
-
 # Install java
 RUN apt-get update -y && \
     apt-get install default-jdk -y
-
 # Install maven
 RUN apt-get update -y && \
     apt-get install maven -y
-
 # Install docker
 RUN apt-get update -y && \
     apt-get install apt-transport-https ca-certificates curl software-properties-common -y && \
@@ -23,7 +19,6 @@ RUN apt-get update -y && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && \
     apt-get update -y && \
     apt-get install docker-ce -y \
-
 # Create user and copy ssh key
 WORKDIR /home/jenkins/.ssh
 RUN useradd -ms /bin/bash jenkins && \
