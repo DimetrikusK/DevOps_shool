@@ -5,7 +5,7 @@ RUN apt-get update -y && \
     apt-get install wget -y && \
     apt-get install curl -y && \
     apt-get install dpkg -y &&\
-    apt-get install -y gpg
+    apt-get install gpg -y
 # Install java
 RUN apt-get update -y && \
     apt-get install default-jdk -y
