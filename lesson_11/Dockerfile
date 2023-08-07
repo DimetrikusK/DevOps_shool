@@ -30,7 +30,7 @@ RUN useradd -ms /bin/bash jenkins && \
     usermod -aG sudo jenkins
 WORKDIR /home/jenkins/.ssh
 ADD id_rsa .
-ADD known_hosts home/jenkins/.ssh/known_hosts
+ADD /home/jenkins/.ssh/known_hosts home/jenkins/.ssh/known_hosts
 RUN chmod 0700 /home/jenkins/.ssh && \
     chmod 600 /home/jenkins/.ssh/id_rsa && \
     chown -R jenkins:jenkins /home/jenkins
