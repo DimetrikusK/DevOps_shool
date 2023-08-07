@@ -29,6 +29,8 @@ RUN useradd -ms /bin/bash jenkins && \
     usermod -aG sudo jenkins \
 USER jenkins
 WORKDIR /home/jenkins/.ssh
+RUN chmod 700 /home/jenkins/.ssh && \
+    chmod 600 /home/jenkins/.ssh/id_rsa
 ADD id_rsa .
 
 
