@@ -11,7 +11,7 @@
 
     - name: download jenkins repo
       apt_key:
-        url: 'https://pkg.jenkins.io/debian-stable/jenkins.io.key'
+        url: 'https://asc.jenkins.io/debian-stable/jenkins.io.key'
         state: present
       become: true
 
