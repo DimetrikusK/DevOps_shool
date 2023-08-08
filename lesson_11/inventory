@@ -1,13 +1,13 @@
-jenkins_host   ansible_host=84.201.149.152    ansible_user=root
-agent_one      ansible_host=51.250.44.200     ansible_user=root
-agent_two      ansible_host=84.201.151.91    ansible_user=root
+jenkins_host   ansible_host=51.250.42.251    ansible_user=root
+agent_one      ansible_host=51.250.46.210     ansible_user=root
+#agent_two      ansible_host=84.201.151.91    ansible_user=root
 
 [jenkins]
 jenkins_host
 
 [agent]
 agent_one
-agent_two
+#agent_two
 
 [install_jenkins:children]
 jenkins
