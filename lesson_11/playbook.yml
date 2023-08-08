@@ -4,6 +4,7 @@
   become: true
 
   tasks:
+
     - name: install java
       apt:
         name: openjdk-11-jre
